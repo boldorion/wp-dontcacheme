@@ -2,7 +2,7 @@
 /*
 Plugin Name: Don't Cache Me
 Description: Present a no-cache & must-revalidate header, if the user is logged in. Use this in conjunction with hard Cloudflare caching.
-Version: 0.0.1
+Version: 0.0.2
 Author: BoldOrion
 Author URI: https://www.boldorion.com
 Text Domain: boldorion
@@ -25,12 +25,9 @@ $myUpdateChecker->setBranch('main');
 /* The actual plugin, in all its glory */
 function cache_control()
 {
-	//Is the user logged in?
     if ( is_user_logged_in() ) 
     {
-		//Let's set a header so that Cloudflare decides not to store this in edge cache at all.
-    	header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0"); //HTTP 1.1
-		header("Cache-Control: post-check=0, pre-check=0", false); //HTTP 1.1
+    	header("Cache-Control: no-cache, must-revalidate"); //HTTP 1.1
   		header("Pragma: no-cache"); //HTTP 1.0
     }
 }
