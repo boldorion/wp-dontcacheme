@@ -2,7 +2,7 @@
 /*
 Plugin Name: Don't Cache Me
 Description: Present a no-cache & must-revalidate header, if the user is logged in. Use this in conjunction with hard Cloudflare caching.
-Version: 0.0.2
+Version: 0.0.3
 Author: BoldOrion
 Author URI: https://www.boldorion.com
 Text Domain: boldorion
@@ -29,6 +29,7 @@ function cache_control()
     {
     	header("Cache-Control: no-cache, must-revalidate"); //HTTP 1.1
   		header("Pragma: no-cache"); //HTTP 1.0
+  		header("x-comment: Not Caching"); //HTTP 1.0
     }
 }
 
