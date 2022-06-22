@@ -2,7 +2,7 @@
 /*
 Plugin Name: Smart Edge Cache
 Description: Present a no-cache & must-revalidate header, if the user is logged in or an admin page is accessed. Ask BoldOrion to set up and manage your Cloudflare for this to work smoothly.
-Version: 0.0.5
+Version: 0.0.6
 Author: BoldOrion
 Author URI: https://www.boldorion.com
 Text Domain: boldorion
@@ -30,6 +30,11 @@ function cache_control()
     	header("Cache-Control: no-cache, must-revalidate"); //HTTP 1.1
   		header("Pragma: no-cache"); //HTTP 1.0
   		header("x-comment: Not Caching"); //HTTP 1.0
+  		header("x-edgecache: Cache action not applied"); //HTTP 1.0
+    }
+    else
+    {
+        header("x-edgecache: Cache action not applied"); //HTTP 1.0
     }
 }
 
