@@ -2,7 +2,7 @@
 /*
 Plugin Name: Smart Edge Cache
 Description: Present a no-cache & must-revalidate header, if the user is logged in or an admin page is accessed. Ask BoldOrion to set up and manage your Cloudflare for this to work smoothly.
-Version: 0.0.8
+Version: 0.0.9
 Author: BoldOrion
 Author URI: https://www.boldorion.com
 Text Domain: boldorion
@@ -36,7 +36,7 @@ function cache_control()
     else
     {
         $seconds_to_cache = (3600*24);
-        $days_to_cache = 1
+        $days_to_cache = 1;
         $ts = gmdate("D, d M Y H:i:s", time() + $seconds_to_cache * $days_to_cache) . " GMT";
         header("Expires: $ts");
         header("Pragma: cache");
