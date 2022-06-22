@@ -46,3 +46,4 @@ function cache_control()
 }
 
 add_action('init', 'cache_control');
+//add_action( 'send_headers', 'cache_control', 999 ); //Is this a better way?
